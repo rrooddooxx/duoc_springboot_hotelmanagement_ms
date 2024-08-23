@@ -7,10 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,8 +17,10 @@ public class RoomsController {
   private final RoomsService roomsService;
 
   @GetMapping()
-  public ResponseEntity<List<Room>> getAllRooms() {
-    return ResponseEntity.ok(this.roomsService.getAllRooms());
+  public ResponseEntity<List<Room>> getAllRooms(@RequestParam("limit") Optional<Integer> limit) {
+    return limit.isPresent()
+        ? ResponseEntity.ok(this.roomsService.getAllRooms(limit.get()))
+        : ResponseEntity.ok(this.roomsService.getAllRooms());
   }
 
   @GetMapping("/{roomId}")

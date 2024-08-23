@@ -16,16 +16,36 @@ Estudiante: Sebastián Kravetz
 
 - Spring Boot v3
 - Spring Boot Web Starter
+- Jackson Modules
 - Lombok
 - JDK 22
 
 ---
 
-### Endpoints:
+## Endpoints:
 
 > Base Host: localhost:8080
 
-#### I. Obtener todas las películas
+#### I. Reservas
+
+    - /api/v1/bookings
+        - [query] limit
+            - ej: /api/v1/bookings?limit={n: integer}
+    - /api/v1/bookings/{bookingId: string}
+
+#### II. Habitaciones
+
+    - /api/v1/rooms
+        - [query] limit
+            - ej: /api/v1/rooms?limit={n: integer}
+    - /api/v1/rooms/{roomId: integer}
+
+#### III. Clientes
+
+    - /api/v1/clients
+        - [query] limit
+            - ej: /api/v1/clients?limit={n: integer}
+    - /api/v1/clients/{clientId: integer}
 
 ### Mantenedor
 

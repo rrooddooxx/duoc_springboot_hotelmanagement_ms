@@ -46,5 +46,29 @@
     "guestCount": 2,
     "bedCount": 1,
     "price": 60000.00
+  },
+  {
+    "roomId": 107,
+    "roomType": "SUITE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 2,
+    "bedCount": 1,
+    "price": 60000.00
+  },
+  {
+    "roomId": 108,
+    "roomType": "SINGLE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 2,
+    "bedCount": 1,
+    "price": 60000.00
+  },
+  {
+    "roomId": 109,
+    "roomType": "DOUBLE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 2,
+    "bedCount": 1,
+    "price": 60000.00
   }
 ]

@@ -12,8 +12,8 @@
     <groupId>com.matrix</groupId>
     <artifactId>duoc_springboot_hotelmanagement_ms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>duoc_springboot_exp1_s3_hoteles</name>
-    <description>duoc_springboot_exp1_s3_hoteles</description>
+    <name>duoc_springboot_hotelmanagement_ms</name>
+    <description>duoc_springboot_hotelmanagement_ms</description>
     <url/>
     <licenses>
         <license/>
