@@ -33,6 +33,15 @@ Estudiante: Sebastián Kravetz
             - ej: /api/v1/bookings?limit={n: integer}
     - /api/v1/bookings/{bookingId: string}
 
+   ```bash
+# peticiones cURL
+
+curl -X GET 'localhost:8080/api/v1/bookings'
+curl -X GET 'localhost:8080/api/v1/bookings?limit=2'
+curl -X GET 'localhost:8080/api/v1/bookings/{bookingId}'
+
+```
+
 #### II. Habitaciones
 
     - /api/v1/rooms
@@ -40,12 +49,30 @@ Estudiante: Sebastián Kravetz
             - ej: /api/v1/rooms?limit={n: integer}
     - /api/v1/rooms/{roomId: integer}
 
+   ```bash
+# peticiones cURL
+
+curl -X GET 'localhost:8080/api/v1/rooms'
+curl -X GET 'localhost:8080/api/v1/rooms?limit=2'
+curl -X GET 'localhost:8080/api/v1/rooms/{roomId}'
+
+```
+
 #### III. Clientes
 
     - /api/v1/clients
         - [query] limit
             - ej: /api/v1/clients?limit={n: integer}
     - /api/v1/clients/{clientId: integer}
+
+   ```bash
+# peticiones cURL
+
+curl -X GET 'localhost:8080/api/v1/clients'
+curl -X GET 'localhost:8080/api/v1/clients?limit=2'
+curl -X GET 'localhost:8080/api/v1/clients/{clientId}'
+
+```
 
 ### Mantenedor
 
