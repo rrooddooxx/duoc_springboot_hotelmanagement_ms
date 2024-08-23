@@ -1,0 +1,86 @@
+[
+  {
+    "bookingId": "B001",
+    "bookingRequestDate": "2024-08-01T14:00:00",
+    "bookingStartDate": "2024-08-05T12:00:00",
+    "bookingEndDate": "2024-08-10T10:00:00",
+    "fee": 200000.00
+  },
+  {
+    "bookingId": "B002",
+    "bookingRequestDate": "2024-08-02T10:30:00",
+    "bookingStartDate": "2024-08-06T14:00:00",
+    "bookingEndDate": "2024-08-12T11:00:00",
+    "fee": 240000.00
+  },
+  {
+    "bookingId": "B003",
+    "bookingRequestDate": "2024-08-03T09:45:00",
+    "bookingStartDate": "2024-08-07T13:00:00",
+    "bookingEndDate": "2024-08-11T09:00:00",
+    "fee": 180000.00
+  },
+  {
+    "bookingId": "B004",
+    "bookingRequestDate": "2024-08-04T15:15:00",
+    "bookingStartDate": "2024-08-08T15:00:00",
+    "bookingEndDate": "2024-08-15T10:30:00",
+    "fee": 300000.00
+  },
+  {
+    "bookingId": "B005",
+    "bookingRequestDate": "2024-08-05T11:00:00",
+    "bookingStartDate": "2024-08-09T12:00:00",
+    "bookingEndDate": "2024-08-16T09:00:00",
+    "fee": 280000.00
+  },
+  {
+    "bookingId": "B006",
+    "bookingRequestDate": "2024-08-06T13:30:00",
+    "bookingStartDate": "2024-08-10T14:00:00",
+    "bookingEndDate": "2024-08-17T11:00:00",
+    "fee": 350000.00
+  },
+  {
+    "bookingId": "B007",
+    "bookingRequestDate": "2024-08-07T16:45:00",
+    "bookingStartDate": "2024-08-11T12:00:00",
+    "bookingEndDate": "2024-08-18T09:00:00",
+    "fee": 270000.00
+  },
+  {
+    "bookingId": "B008",
+    "bookingRequestDate": "2024-08-08T08:15:00",
+    "bookingStartDate": "2024-08-12T14:00:00",
+    "bookingEndDate": "2024-08-20T11:00:00",
+    "fee": 320000.00
+  },
+  {
+    "bookingId": "B009",
+    "bookingRequestDate": "2024-08-09T14:00:00",
+    "bookingStartDate": "2024-08-13T13:00:00",
+    "bookingEndDate": "2024-08-19T10:00:00",
+    "fee": 250000.00
+  },
+  {
+    "bookingId": "B010",
+    "bookingRequestDate": "2024-08-10T10:30:00",
+    "bookingStartDate": "2024-08-14T15:00:00",
+    "bookingEndDate": "2024-08-22T12:00:00",
+    "fee": 400000.00
+  },
+  {
+    "bookingId": "B011",
+    "bookingRequestDate": "2024-08-11T09:45:00",
+    "bookingStartDate": "2024-08-15T12:00:00",
+    "bookingEndDate": "2024-08-21T09:00:00",
+    "fee": 310000.00
+  },
+  {
+    "bookingId": "B012",
+    "bookingRequestDate": "2024-08-12T15:15:00",
+    "bookingStartDate": "2024-08-16T14:00:00",
+    "bookingEndDate": "2024-08-23T10:30:00",
+    "fee": 360000.00
+  }
+]
