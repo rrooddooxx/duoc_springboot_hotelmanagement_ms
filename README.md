@@ -32,6 +32,7 @@ Estudiante: Sebastián Kravetz
         - [query] limit
             - ej: /api/v1/bookings?limit={n: integer}
     - /api/v1/bookings/{bookingId: string}
+    - /api/v1/bookings/{bookingId: string}/fee
 
    ```bash
 # peticiones cURL
@@ -39,6 +40,7 @@ Estudiante: Sebastián Kravetz
 curl -X GET 'localhost:8080/api/v1/bookings'
 curl -X GET 'localhost:8080/api/v1/bookings?limit=2'
 curl -X GET 'localhost:8080/api/v1/bookings/{bookingId}'
+curl -X GET 'localhost:8080/api/v1/bookings/{bookingId}/fee'
 
 ```
 

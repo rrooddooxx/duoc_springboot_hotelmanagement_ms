@@ -2,6 +2,7 @@ package com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers
 
 import com.matrix.duoc_springboot_hotelmanagement_ms.application.services.BookingsService;
 import com.matrix.duoc_springboot_hotelmanagement_ms.domain.Booking;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -37,5 +38,14 @@ public class BookingsController {
     return foundBooking.isEmpty()
         ? ResponseEntity.notFound().build()
         : ResponseEntity.ok(foundBooking.get());
+  }
+
+  @GetMapping("/{bookingId}/fee")
+  public ResponseEntity<BigDecimal> getBookingStatusById(@PathVariable("bookingId") String bookingId) {
+    Optional<Booking> foundBooking = bookingsService.getBookingById(bookingId);
+
+    return foundBooking.isEmpty()
+        ? ResponseEntity.notFound().build()
+        : ResponseEntity.ok(foundBooking.get().getFee());
   }
 }
