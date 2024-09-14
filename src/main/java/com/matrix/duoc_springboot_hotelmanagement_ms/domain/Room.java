@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Room {
-  private Integer roomId;
+  private Long roomId;
   private RoomType roomType;
   private AvailabilityStatus availabilityStatus;
   private int guestCount;

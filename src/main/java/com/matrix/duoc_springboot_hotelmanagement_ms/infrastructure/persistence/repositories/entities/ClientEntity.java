@@ -1,14 +1,16 @@
 package com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
 @Table(name = "client")
-public class Client {
+@Getter
+public class ClientEntity {
 
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Id
-  private Integer clientId;
+  private Long clientId;
 
   @Column(name = "first_name", nullable = false)
   private String clientFirstName;

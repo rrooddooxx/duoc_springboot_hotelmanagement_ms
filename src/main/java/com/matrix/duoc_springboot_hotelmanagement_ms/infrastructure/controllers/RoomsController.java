@@ -24,7 +24,7 @@ public class RoomsController {
   }
 
   @GetMapping("/{roomId}")
-  public ResponseEntity<Room> getRoomById(@PathVariable("roomId") Integer roomId) {
+  public ResponseEntity<Room> getRoomById(@PathVariable("roomId") Long roomId) {
     Optional<Room> foundRoom = this.roomsService.getRoomById(roomId);
     return foundRoom.isPresent()
         ? ResponseEntity.ok(foundRoom.get())

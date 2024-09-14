@@ -3,20 +3,23 @@ package com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import lombok.*;
+import lombok.Getter;
 
 @Entity
 @Table(name = "booking")
-public class Booking {
+@Getter
+public class BookingDetailEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Id
-  private String bookingId;
+  private Long bookingId;
 
-  @Column(name = "client_id", nullable = false)
-  private Client clientId;
+  @ManyToOne
+  @JoinColumn(name = "client_id")
+  private ClientEntity client;
 
-  @Column(name = "room_id", nullable = false)
-  private Integer roomId;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "room_id")
+  private RoomEntity room;
 
   @Column(name = "date_request", nullable = false)
   private LocalDateTime bookingRequestDate;
