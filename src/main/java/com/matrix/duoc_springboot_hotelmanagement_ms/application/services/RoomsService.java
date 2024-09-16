@@ -2,7 +2,9 @@ package com.matrix.duoc_springboot_hotelmanagement_ms.application.services;
 
 import com.matrix.duoc_springboot_hotelmanagement_ms.domain.AvailabilityStatus;
 import com.matrix.duoc_springboot_hotelmanagement_ms.domain.Room;
+import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.exception.ResourceNotFoundException;
 import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.RoomsRepository;
+import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.entities.RoomEntity;
 import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.mappers.RoomsMapper;
 import java.util.HashMap;
 import java.util.List;
@@ -48,5 +50,22 @@ public class RoomsService {
     availabilityOfRooms.put("Not Available", occupiedRooms.intValue());
 
     return availabilityOfRooms;
+  }
+
+  public void updateRoomStatusById(Long roomId, AvailabilityStatus newStatus) {
+    Optional<RoomEntity> room = this.roomsRepository.findById(roomId);
+
+    if (room.isEmpty()) {
+      throw new ResourceNotFoundException(String.format("Room con id (%s) no encontrada", roomId));
+    }
+
+    RoomEntity modifiedRoom = room.get();
+    modifiedRoom.setAvailabilityStatus(newStatus);
+    this.roomsRepository.save(modifiedRoom);
+  }
+
+  public Long createNewRoom(Room newRoom) {
+    RoomEntity createdRoom = this.roomsRepository.save(this.mapper.mapDomainToEntity(newRoom));
+    return createdRoom.getRoomId();
   }
 }

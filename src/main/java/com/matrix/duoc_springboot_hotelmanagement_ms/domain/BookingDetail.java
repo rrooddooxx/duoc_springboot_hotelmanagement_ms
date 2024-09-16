@@ -12,6 +12,7 @@ public class BookingDetail {
   private Long bookingId;
   private Client client;
   private Room room;
+  private BookingStatus status;
   private LocalDateTime bookingRequestDate;
   private LocalDateTime bookingStartDate;
   private LocalDateTime bookingEndDate;

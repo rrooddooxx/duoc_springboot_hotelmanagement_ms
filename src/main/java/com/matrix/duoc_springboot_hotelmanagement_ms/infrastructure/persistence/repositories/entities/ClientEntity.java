@@ -1,11 +1,17 @@
 package com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "client")
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ClientEntity {
 
   @GeneratedValue(strategy = GenerationType.IDENTITY)

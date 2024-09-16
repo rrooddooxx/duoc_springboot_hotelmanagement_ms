@@ -1,5 +1,6 @@
 package com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.entities;
 
+import com.matrix.duoc_springboot_hotelmanagement_ms.domain.BookingStatus;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,6 +21,9 @@ public class BookingDetailEntity {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "room_id")
   private RoomEntity room;
+
+  @Column(name = "booking_status", nullable = false)
+  private BookingStatus status;
 
   @Column(name = "date_request", nullable = false)
   private LocalDateTime bookingRequestDate;

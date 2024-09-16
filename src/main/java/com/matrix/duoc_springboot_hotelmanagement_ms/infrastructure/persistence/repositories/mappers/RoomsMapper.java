@@ -16,4 +16,14 @@ public class RoomsMapper {
         .price(roomEntity.getPrice())
         .build();
   }
+
+  public RoomEntity mapDomainToEntity(Room newRoom) {
+    return RoomEntity.builder()
+        .roomType(newRoom.getRoomType())
+        .availabilityStatus(newRoom.getAvailabilityStatus())
+        .bedCount(newRoom.getBedCount())
+        .guestCount(newRoom.getGuestCount())
+        .price(newRoom.getPrice())
+        .build();
+  }
 }

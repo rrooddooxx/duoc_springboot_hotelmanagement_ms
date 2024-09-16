@@ -1,9 +1,13 @@
 package com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers;
 
 import com.matrix.duoc_springboot_hotelmanagement_ms.application.services.BookingsService;
+import com.matrix.duoc_springboot_hotelmanagement_ms.application.services.mappers.BookingDtoMapper;
 import com.matrix.duoc_springboot_hotelmanagement_ms.domain.Booking;
 import com.matrix.duoc_springboot_hotelmanagement_ms.domain.BookingDetail;
+import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.dto.NewBookingDTO;
+import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.dto.UpdateBookingStatusDto;
 import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.exception.ServiceErrorException;
+import jakarta.validation.Valid;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 public class BookingsController {
 
   private final BookingsService bookingsService;
+  private final BookingDtoMapper mapper;
 
   @GetMapping()
   public ResponseEntity<List<Booking>> getAllBookings(
@@ -65,5 +70,32 @@ public class BookingsController {
     return foundBooking.isEmpty()
         ? ResponseEntity.notFound().build()
         : ResponseEntity.ok(foundBooking.get().getFee());
+  }
+
+  @PostMapping()
+  public ResponseEntity<Long> createNewBooking(@Valid @RequestBody NewBookingDTO newBooking) {
+    try {
+      Long newBookingId =
+          this.bookingsService.createBooking(this.mapper.mapNewBookingDtoToDomain(newBooking));
+      return ResponseEntity.ok(newBookingId);
+
+    } catch (Exception e) {
+
+      throw new RuntimeException(e);
+    }
+  }
+
+  @PutMapping("/{bookingId}/status")
+  public ResponseEntity<Object> editBookingStatus(
+      @PathVariable("bookingId") Long bookingId,
+      @Valid @RequestBody UpdateBookingStatusDto bookingStatusDto) {
+    Booking updatedBooking =
+        this.bookingsService.updateBookingStatus(bookingId, bookingStatusDto.getStatus());
+    return ResponseEntity.ok(updatedBooking);
+  }
+
+  @DeleteMapping("/{bookingId}")
+  public void deleteBookingById(@PathVariable("bookingId") Long bookingId) {
+    this.bookingsService.deleteBookingById(bookingId);
   }
 }

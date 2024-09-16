@@ -1,9 +1,6 @@
 package com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.mappers;
 
-import com.matrix.duoc_springboot_hotelmanagement_ms.domain.Booking;
-import com.matrix.duoc_springboot_hotelmanagement_ms.domain.BookingDetail;
-import com.matrix.duoc_springboot_hotelmanagement_ms.domain.Client;
-import com.matrix.duoc_springboot_hotelmanagement_ms.domain.Room;
+import com.matrix.duoc_springboot_hotelmanagement_ms.domain.*;
 import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.entities.BookingDetailEntity;
 import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.entities.BookingEntity;
 import org.springframework.stereotype.Component;
@@ -15,6 +12,7 @@ public class BookingsMapper {
         .bookingId(booking.getBookingId())
         .roomId(booking.getRoomId())
         .clientId(booking.getClientId())
+        .status(booking.getStatus())
         .bookingRequestDate(booking.getBookingRequestDate())
         .bookingStartDate(booking.getBookingStartDate())
         .bookingEndDate(booking.getBookingEndDate())
@@ -36,6 +34,7 @@ public class BookingsMapper {
                 .availabilityStatus(room.getAvailabilityStatus())
                 .price(room.getPrice())
                 .build())
+        .status(bookingDetailEntity.getStatus())
         .bookingRequestDate(bookingDetailEntity.getBookingRequestDate())
         .bookingStartDate(bookingDetailEntity.getBookingStartDate())
         .bookingEndDate(bookingDetailEntity.getBookingEndDate())
@@ -48,6 +47,18 @@ public class BookingsMapper {
                 .clientPhone(client.getClientPhone())
                 .build())
         .fee(bookingDetailEntity.getFee())
+        .build();
+  }
+
+  public BookingEntity mapDomainToEntity(Booking newBooking, Client client, Room room) {
+    return BookingEntity.builder()
+        .clientId(client.getClientId())
+        .roomId(room.getRoomId())
+        .status(BookingStatus.PENDING)
+        .bookingRequestDate(newBooking.getBookingRequestDate())
+        .bookingStartDate(newBooking.getBookingStartDate())
+        .bookingEndDate(newBooking.getBookingEndDate())
+        .fee(newBooking.getFee())
         .build();
   }
 }

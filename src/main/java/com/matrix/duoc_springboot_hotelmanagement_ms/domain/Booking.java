@@ -11,7 +11,8 @@ import lombok.*;
 public class Booking {
   private Long bookingId;
   private Long clientId;
-  private Integer roomId;
+  private Long roomId;
+  private BookingStatus status;
   private LocalDateTime bookingRequestDate;
   private LocalDateTime bookingStartDate;
   private LocalDateTime bookingEndDate;

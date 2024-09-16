@@ -15,4 +15,14 @@ public class ClientsMapper {
         .clientPhone(clientEntity.getClientPhone())
         .build();
   }
+
+  public ClientEntity mapEntityToDomain(Client newClient) {
+    return ClientEntity.builder()
+        .clientEmail(newClient.getClientEmail())
+        .clientFirstName(newClient.getClientFirstName())
+        .clientLastName(newClient.getClientLastName())
+        .clientEmail(newClient.getClientEmail())
+        .clientPhone(newClient.getClientPhone())
+        .build();
+  }
 }

@@ -4,11 +4,15 @@ import com.matrix.duoc_springboot_hotelmanagement_ms.domain.AvailabilityStatus;
 import com.matrix.duoc_springboot_hotelmanagement_ms.domain.RoomType;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
-import lombok.Getter;
+import lombok.*;
 
 @Entity
 @Table(name = "room")
 @Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoomEntity {
 
   @GeneratedValue(strategy = GenerationType.IDENTITY)

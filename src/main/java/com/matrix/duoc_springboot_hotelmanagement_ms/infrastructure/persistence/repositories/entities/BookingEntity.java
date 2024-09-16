@@ -1,18 +1,17 @@
 package com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.persistence.repositories.entities;
 
+import com.matrix.duoc_springboot_hotelmanagement_ms.domain.BookingStatus;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "booking")
 @Builder
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookingEntity {
@@ -20,12 +19,15 @@ public class BookingEntity {
   @Id
   private Long bookingId;
 
-  @NotBlank(message = "Client ID cannot be empty")
+  @NotNull(message = "Client ID cannot be empty")
   @Column(name = "client_id", nullable = false)
   private Long clientId;
 
   @Column(name = "room_id", nullable = false)
-  private Integer roomId;
+  private Long roomId;
+
+  @Column(name = "booking_status", nullable = false)
+  private BookingStatus status;
 
   @Column(name = "date_request", nullable = false)
   private LocalDateTime bookingRequestDate;
