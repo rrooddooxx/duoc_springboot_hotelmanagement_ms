@@ -8,10 +8,10 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Booking {
+public class BookingDetail {
   private Long bookingId;
-  private Long clientId;
-  private Long roomId;
+  private Client client;
+  private Room room;
   private BookingStatus status;
   private LocalDateTime bookingRequestDate;
   private LocalDateTime bookingStartDate;
