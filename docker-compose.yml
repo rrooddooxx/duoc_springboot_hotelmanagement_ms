@@ -1,0 +1,11 @@
+services:
+  hotel-ms:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - spring.datasource.url=jdbc:oracle:thin:@matrix_high?TNS_ADMIN=/app/wallet
+      - spring.datasource.username=HOTEL_MS
+      - spring.datasource.password=h0t3l@App123
+    ports:
+      - "8080:8080"

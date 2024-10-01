@@ -5,12 +5,14 @@ import com.matrix.duoc_springboot_hotelmanagement_ms.application.services.mapper
 import com.matrix.duoc_springboot_hotelmanagement_ms.domain.Room;
 import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.dto.NewRoomDTO;
 import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.dto.UpdateRoomDto;
+import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.mappers.RoomsControllerMapper;
 import jakarta.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,19 +24,19 @@ public class RoomsController {
 
   private final RoomsService roomsService;
   private final RoomDtoMapper mapper;
+  private final RoomsControllerMapper resMapper;
 
   @GetMapping()
-  public ResponseEntity<List<Room>> getAllRooms(@RequestParam("limit") Optional<Integer> limit) {
-    return limit.isPresent()
-        ? ResponseEntity.ok(this.roomsService.getAllRooms(limit.get()))
-        : ResponseEntity.ok(this.roomsService.getAllRooms());
+  public ResponseEntity<CollectionModel<EntityModel<Room>>> getAllRooms() {
+    return ResponseEntity.ok(
+        resMapper.mapToCollection(resMapper.mapRoomsToEntities(this.roomsService.getAllRooms())));
   }
 
   @GetMapping("/{roomId}")
-  public ResponseEntity<Room> getRoomById(@PathVariable("roomId") Long roomId) {
+  public ResponseEntity<EntityModel<Room>> getRoomById(@PathVariable("roomId") Long roomId) {
     Optional<Room> foundRoom = this.roomsService.getRoomById(roomId);
     return foundRoom.isPresent()
-        ? ResponseEntity.ok(foundRoom.get())
+        ? ResponseEntity.ok(resMapper.mapDomainToEntityModel(foundRoom.get()))
         : ResponseEntity.notFound().build();
   }
 
@@ -44,11 +46,12 @@ public class RoomsController {
   }
 
   @PostMapping()
-  public ResponseEntity<HashMap<String, Long>> createRoom(@RequestBody NewRoomDTO newRoom) {
+  public ResponseEntity<EntityModel<HashMap<String, Long>>> createRoom(
+      @RequestBody NewRoomDTO newRoom) {
     Long newRoomId = this.roomsService.createNewRoom(this.mapper.mapNewRoomDtoToDomain(newRoom));
     HashMap<String, Long> response = new HashMap<>();
     response.put("new_room_id", newRoomId);
-    return ResponseEntity.ok(response);
+    return ResponseEntity.ok(resMapper.mapNewRoomToEntityModel(response));
   }
 
   @PutMapping("/{roomId}")
