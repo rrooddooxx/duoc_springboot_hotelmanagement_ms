@@ -25,6 +25,14 @@ public class ControllerExceptionHandler {
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
   }
 
+  @ExceptionHandler(value = BookingNotFoundException.class)
+  public ResponseEntity<ResourceNotFoundExceptionDTO> handleBookingNotFoundException(
+      BookingNotFoundException exception) {
+    ResourceNotFoundExceptionDTO response =
+        ResourceNotFoundExceptionDTO.builder().errorMsg(exception.getMessage()).build();
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+  }
+
   @ExceptionHandler(value = ResourceNotFoundException.class)
   public ResponseEntity<ResourceNotFoundExceptionDTO> handleResourceNotFoundException(
       ResourceNotFoundException exception) {

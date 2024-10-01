@@ -34,12 +34,14 @@ public class BookingsService {
     return this.bookingsRepository.findAll().stream().map(this.mapper::mapEntityToDomain).toList();
   }
 
-  public Optional<Booking> getBookingById(Long bookingId) {
-    try {
-      return this.bookingsRepository.findById(bookingId).map(this.mapper::mapEntityToDomain);
-    } catch (Exception e) {
-      throw new ServiceErrorException("Error general del servicio. Reintente.");
-    }
+  public Booking getBookingById(Long bookingId) {
+    return this.bookingsRepository
+        .findById(bookingId)
+        .map(this.mapper::mapEntityToDomain)
+        .orElseThrow(
+            () ->
+                new BookingNotFoundException(
+                    String.format("Booking with id %s not found.", bookingId)));
   }
 
   public Optional<BookingDetail> getBookingDetailById(Long bookingId) {

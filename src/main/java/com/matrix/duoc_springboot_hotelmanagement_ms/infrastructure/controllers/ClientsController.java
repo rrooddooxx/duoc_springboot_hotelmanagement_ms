@@ -5,12 +5,14 @@ import com.matrix.duoc_springboot_hotelmanagement_ms.application.services.mapper
 import com.matrix.duoc_springboot_hotelmanagement_ms.domain.Client;
 import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.dto.NewClientDTO;
 import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.dto.NewClientResponseDTO;
+import com.matrix.duoc_springboot_hotelmanagement_ms.infrastructure.controllers.mappers.ClientsControllerMapper;
 import jakarta.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,13 +25,14 @@ public class ClientsController {
 
   private final ClientsService clientsService;
   private final ClientDtoMapper mapper;
+  private final ClientsControllerMapper resMapper;
 
   @GetMapping()
-  public List<Client> getAllClients(@RequestParam("limit") Optional<Integer> limit) {
+  public ResponseEntity<CollectionModel<EntityModel<Client>>> getAllClients() {
 
-    return limit.isPresent()
-        ? this.clientsService.getClients(limit.get())
-        : this.clientsService.getAllClients();
+    var serviceResponse = this.clientsService.getAllClients();
+    return ResponseEntity.ok(
+        resMapper.mapToCollection(resMapper.mapClientsToEntities(serviceResponse)));
   }
 
   @GetMapping("/{clientId}")
