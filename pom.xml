@@ -19,7 +19,7 @@
     </parent>
     <groupId>com.matrix</groupId>
     <artifactId>duoc_springboot_hotelmanagement_ms</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>duoc_springboot_hotelmanagement_ms</name>
     <description>duoc_springboot_hotelmanagement_ms</description>
     <url/>
