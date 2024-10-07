@@ -1,4 +1,4 @@
-FROM openjdk:21
+FROM openjdk:21-ea-1-jdk-oracle
 LABEL authors="sebastiankravetz"
 
 WORKDIR /app
