@@ -76,6 +76,14 @@ curl -X GET 'localhost:8080/api/v1/clients/{clientId}'
 
 ```
 
+### Docker
+
+Puedes utilizar este microservicio con Docker Compose, ejecutando en terminal en el directorio raíz:
+
+```bash
+docker compose up
+```
+
 ### Mantenedor
 
 Sebastián Kravetz (@rrooddooxx)
