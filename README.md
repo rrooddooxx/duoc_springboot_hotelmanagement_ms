@@ -134,6 +134,14 @@ curl -X DELETE 'localhost:8080/api/v1/bookings/2'
 
 ```
 
+### Docker
+
+Puedes utilizar este microservicio con Docker Compose, ejecutando en terminal en el directorio raíz:
+
+```bash
+docker compose up
+```
+
 ### Mantenedor
 
 Sebastián Kravetz (@rrooddooxx)
