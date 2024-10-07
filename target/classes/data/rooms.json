@@ -1,0 +1,74 @@
+[
+  {
+    "roomId": 101,
+    "roomType": "SINGLE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 1,
+    "bedCount": 1,
+    "price": 40000.00
+  },
+  {
+    "roomId": 102,
+    "roomType": "DOUBLE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 2,
+    "bedCount": 1,
+    "price": 60000.00
+  },
+  {
+    "roomId": 103,
+    "roomType": "TRIPLE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 3,
+    "bedCount": 2,
+    "price": 80000.00
+  },
+  {
+    "roomId": 104,
+    "roomType": "SUITE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 2,
+    "bedCount": 2,
+    "price": 120000.00
+  },
+  {
+    "roomId": 105,
+    "roomType": "SINGLE",
+    "availabilityStatus": "UNAVAILABLE",
+    "guestCount": 1,
+    "bedCount": 1,
+    "price": 40000.00
+  },
+  {
+    "roomId": 106,
+    "roomType": "DOUBLE",
+    "availabilityStatus": "UNAVAILABLE",
+    "guestCount": 2,
+    "bedCount": 1,
+    "price": 60000.00
+  },
+  {
+    "roomId": 107,
+    "roomType": "SUITE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 2,
+    "bedCount": 1,
+    "price": 60000.00
+  },
+  {
+    "roomId": 108,
+    "roomType": "SINGLE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 2,
+    "bedCount": 1,
+    "price": 60000.00
+  },
+  {
+    "roomId": 109,
+    "roomType": "DOUBLE",
+    "availabilityStatus": "AVAILABLE",
+    "guestCount": 2,
+    "bedCount": 1,
+    "price": 60000.00
+  }
+]

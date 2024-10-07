@@ -8,10 +8,12 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Booking {
-  private String bookingId;
-  private Client clientId;
-  private Integer roomId;
+  private Long bookingId;
+  private Long clientId;
+  private Long roomId;
+  private BookingStatus status;
   private LocalDateTime bookingRequestDate;
   private LocalDateTime bookingStartDate;
   private LocalDateTime bookingEndDate;
