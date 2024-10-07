@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+### mac garbage
+.DS_Store
+src/.DS_Store
